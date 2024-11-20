@@ -1,5 +1,5 @@
 # Build files
-build/
+builds/*
 
 # Godot 4+ specific ignores
 .godot/
