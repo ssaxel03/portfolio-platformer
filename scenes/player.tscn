@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdw063iipv0te"]
+[gd_scene load_steps=14 format=3 uid="uid://bdw063iipv0te"]
 
 [ext_resource type="Texture2D" uid="uid://dp7mq8j2rx8fc" path="res://assets/char-spritesheet.png" id="1_cnndd"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_k3dh2"]
@@ -20,6 +20,10 @@ atlas = ExtResource("1_cnndd")
 region = Rect2(0, 512, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aq85e"]
+atlas = ExtResource("1_cnndd")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwh7s"]
 atlas = ExtResource("1_cnndd")
 region = Rect2(256, 512, 256, 256)
 
@@ -67,6 +71,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_qwh7s")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mjiqa")
 }, {
 "duration": 1.0,
@@ -96,8 +108,10 @@ script = ExtResource("1_k3dh2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2yrca")
-animation = &"idle"
+animation = &"jumping"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-22, 38)
 shape = SubResource("CircleShape2D_wwsbg")
+
+[connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
