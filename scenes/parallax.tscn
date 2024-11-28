@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://ciotdg443itg5"]
+
+[ext_resource type="Texture2D" uid="uid://cl3862yxqrqe2" path="res://assets/background.png" id="1_4gtwn"]
+[ext_resource type="Script" path="res://scripts/far_clouds_movement.gd" id="2_83tk3"]
+[ext_resource type="Texture2D" uid="uid://uj2q035uarp6" path="res://assets/clouds.png" id="3_jappk"]
+[ext_resource type="Texture2D" uid="uid://da35a2krxhc5n" path="res://assets/buildings.png" id="4_6nfvy"]
+[ext_resource type="Script" path="res://scripts/near_clouds_movement.gd" id="5_x03lv"]
+
+[node name="Parallax" type="Node2D"]
+
+[node name="background" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.01, 0.01)
+scroll_offset = Vector2(1700, 500)
+
+[node name="Sprite2D" type="Sprite2D" parent="background"]
+position = Vector2(-597, -130)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_4gtwn")
+
+[node name="far_clouds" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(390, 200)
+repeat_size = Vector2(3000, 0)
+repeat_times = 10
+script = ExtResource("2_83tk3")
+
+[node name="Sprite2D" type="Sprite2D" parent="far_clouds"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_jappk")
+
+[node name="buildings" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.4, 0.4)
+scroll_offset = Vector2(0, 400)
+repeat_size = Vector2(5400, 0)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="buildings"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_6nfvy")
+
+[node name="near_clouds" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.45, 0.45)
+scroll_offset = Vector2(1000, 500)
+repeat_size = Vector2(4800, 0)
+repeat_times = 10
+script = ExtResource("5_x03lv")
+
+[node name="Sprite2D" type="Sprite2D" parent="near_clouds"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_jappk")

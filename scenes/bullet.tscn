@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://dqgktws2frero"]
+
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_2035u"]
+[ext_resource type="Texture2D" uid="uid://i2xoohcmx34o" path="res://assets/bullet-spritesheet.png" id="1_vr1w0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mge8a"]
+atlas = ExtResource("1_vr1w0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu1nb"]
+atlas = ExtResource("1_vr1w0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6cnp"]
+atlas = ExtResource("1_vr1w0")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fb08"]
+atlas = ExtResource("1_vr1w0")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g6xlb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mge8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu1nb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6cnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fb08")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qdi5q"]
+radius = 13.0
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_2035u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_g6xlb")
+autoplay = "default"
+frame_progress = 0.815916
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qdi5q")
+
+[node name="DeSpawn" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="DeSpawn" to="." method="_on_timer_timeout"]
