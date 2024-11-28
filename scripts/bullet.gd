@@ -3,7 +3,7 @@ extends Node2D
 @onready var timer: Timer = $DeSpawn
 
 
-const SPEED = 70
+const SPEED = 100
 const PARALLAX = preload("res://scenes/parallax.tscn") # TODO
 
 @export var direction: int = 0
