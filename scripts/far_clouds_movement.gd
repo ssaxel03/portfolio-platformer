@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 	pass
 	
 func _physics_process(delta: float) -> void:
-	far_clouds.scroll_offset.x -= 10 * delta
+	far_clouds.scroll_offset.x -= 15 * delta

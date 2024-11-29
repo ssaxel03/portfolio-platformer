@@ -18,7 +18,7 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_4gtwn")
 
 [node name="far_clouds" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.2, 0.2)
+scroll_scale = Vector2(0.05, 0.05)
 scroll_offset = Vector2(390, 200)
 repeat_size = Vector2(3000, 0)
 repeat_times = 10
