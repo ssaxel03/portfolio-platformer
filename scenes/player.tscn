@@ -116,6 +116,7 @@ shape = SubResource("CircleShape2D_wwsbg")
 
 [node name="FireRate" type="Timer" parent="."]
 wait_time = 0.3
+one_shot = true
 
 [connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
 [connection signal="timeout" from="FireRate" to="." method="_on_timer_timeout"]
